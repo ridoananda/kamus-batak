@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamus batak - versi kelompok 5</title>
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-800 text-gray-100">
+    <div class="flex items-center justify-center w-full h-screen">
+        <div class="text-center space-y-8">
+            <h3 class="text-3xl font-semibold">Kamus Bahasa Batak</h3>
+            <h3 class="text-xl font-semibold">Indonesia - Batak</h3>
+            <div class="flex items-center justify-center space-x-2">
+                <input id="input" type="text"
+                    class="px-3 py-1 rounded-lg border-gray-300 border focus:outline-none bg-transparent"
+                    placeholder="Masukkan kata . . .">
+                <div id="search" class="py-2 px-3 bg-gray-900 rounded-lg text-sm uppercase">Cari</div>
+            </div>
+            <div id="result">
+            </div>
+            <div class="absolute bottom-4 left-0 right-0">
+                <div class="mb-1 underline">Penerjemah</div>
+                <div class="text-sm">Vika Oktaviani Silaen | Nenda Sartyka Manalu</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const search = document.querySelector('#search')
+        const input = document.querySelector('#input')
+        let result = document.querySelector("#result")
+        const words = {
+            aku: 'au',
+            sayang: 'holong',
+            kalian: 'hamuna'
+        }
+
+        search.addEventListener("click", () => {
+            const values = input.value.split(' ');
+            values.forEach((value, index) => {
+                const keys = Object.keys(words)
+                if (value == keys[index]) {
+                    return result.innerHTML = "Holong rohaku tu hamuna"
+                }
+                return result.innerHTML = "<div class='text-red-400'>hasil tidak ditemukan :(</div>"
+            })
+        })
+    </script>
+</body>
+
+</html>
